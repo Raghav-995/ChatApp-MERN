@@ -17,12 +17,13 @@ const Chats = ()=> {
         setChats(response.data);
     }
     useEffect(()=> {fetchChats();},[]);
+
      return (
         <div>
           <h2>Chat List</h2>
           <ul>
-            {chats.map(chat => (
-              <li key = {chat._id} > {/* Ensure chat._id is a string or can be converted to a string */}
+            {chats.map((chat,index) => (
+              <li key = {index} > {/* Ensure chat._id is a string or can be converted to a string */}
                 <strong>{chat.chatName}</strong> - {chat.users.map(user => user.email).join(', ')}
               </li>
             ))}
